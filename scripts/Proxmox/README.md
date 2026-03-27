@@ -25,6 +25,29 @@ Activer le terminal série pour :
 - **Débogage du noyau** sans dépendre de VNC
 - **Résoudre les problèmes de clavier** sur l'invité
 
+## 🔒 Sécurité : Terminal Série vs SSH
+
+### En bref
+**Le Terminal Série n'est pas plus sûr que SSH. C'est un outil complémentaire pour les urgences.**
+
+| Aspect | Terminal Série | SSH |
+|--------|---|---|
+| **Cas d'usage** | Dépannage d'urgence, débogage | Accès normal, productif |
+| **Chiffrement** | ❌ Non (local uniquement) | ✅ TLS/SSH |
+| **Authentification** | ❌ Aucune | ✅ Clés/password |
+| **Exposition réseau** | ❌ Local uniquement | ✅ Potentiellement internet |
+| **Logs/Audits** | ⚠️ Minimal | ✅ Complet |
+| **Quand utiliser** | VM sans accès réseau | Usage quotidien |
+
+### Recommandation de sécurité
+- ✅ **SSH par défaut** pour tous les accès normaux (avec clé publique, fail2ban, etc.)
+- ✅ **Terminal Série actif** comme secours en cas de panne réseau/SSH
+- ✅ **Nécessite accès root à Proxmox** (donc protégé par la sécurité de l'hôte)
+
+⚠️ **N'oubliez pas:** Quiconque peut accéder à Proxmox via SSH/console peut utiliser le terminal série. Sécurisez l'hôte en premier. 
+
+Pour plus de détails, consultez la section "Dépannage" ci-dessous.
+
 ## 🚀 Démarrage rapide
 
 ### Étape 1 : Configuration Proxmox (sur l'hôte)
@@ -132,6 +155,32 @@ sudo ./enable-serial-terminal.sh
 - Système basé systemd ou upstart
 
 ## 🐛 Dépannage
+
+### Sécurité et bonnes pratiques
+
+**Terminal Série est un outil de secours, pas de remplacement SSH**
+
+- Ne pas compter dessus pour l'accès normal (utiliser SSH)
+- Le terminal série ne chiffre pas (communication locale)
+- Pas d'authentification - accès par socket Unix
+- Nécessite privilèges root sur l'hôte Proxmox
+- Recommandation: Utiliser SSH + fail2ban en production, série en backup
+
+**Sécuriser correctement votre infrastructure Proxmox:**
+```bash
+# SSH avec clés publiques uniquement
+PermitRootLogin prohibit-password  # ou no
+PubkeyAuthentication yes
+PasswordAuthentication no
+
+# Fail2ban pour brute-force
+sudo apt install fail2ban
+sudo systemctl enable fail2ban
+
+# Terminal série comme backup d'urgence uniquement
+```
+
+---
 
 ### Le terminal série ne fonctionne pas
 
