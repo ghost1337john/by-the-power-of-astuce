@@ -30,34 +30,21 @@ qm set <idVM> -serial0 socket
 
 ## Configuration sur l'invité (VM Debian)
 
-### 1. Configurer le service getty sur le port série
 
-Éditer ou créer le fichier :
+### 1. Activer le terminal série (Debian 13+ / systemd)
 
-```bash
-nano /etc/init/ttyS0.conf
-```
+Depuis Debian 8, et surtout Debian 10/11/12/13, le système utilise **systemd** (et non plus upstart).
 
-Ajouter le contenu suivant :
-
-```
-# ttyS0 - getty
-#
-# This service maintains a getty on ttyS0 from the point the system is
-# started until it is shut down again.
-
-start on stopped rc RUNLEVEL=[12345]
-stop on runlevel [!12345]
-
-respawn
-exec /sbin/getty -L 115200 ttyS0 vt102
-```
-
-Démarrer le service :
+Pour activer le terminal série sur ttyS0 :
 
 ```bash
-sudo start ttyS0
+sudo systemctl enable serial-getty@ttyS0.service
+sudo systemctl start serial-getty@ttyS0.service
 ```
+
+> **Remarque :**
+> - Pour les anciennes Debian (<=8), la méthode upstart avec `/etc/init/ttyS0.conf` reste valable.
+> - Pour Debian 10/11/12/13, il faut utiliser systemd comme ci-dessus.
 
 ### 2. Vérifier que le port série émulé est bien présent
 
