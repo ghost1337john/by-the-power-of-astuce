@@ -1,3 +1,9 @@
+
+> ⚠️ **Ce dépôt est actuellement en phase de test et de validation.**
+> 
+> Des modifications, ajouts ou suppressions peuvent survenir à tout moment.
+> Je préciserai ici-même quand le dépôt sera considéré comme 100% fonctionnel et stable.
+
 # ⚡ By the Power of Astuce
 
 > *Recueil d'astuces, correctifs et solutions techniques glanés au fil des problèmes rencontrés.*  
