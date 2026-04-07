@@ -39,10 +39,10 @@ sudo mount -t cifs //serveur/Partage /mnt/partage -o username=MONUTILISATEUR,pas
 
 ## 4️⃣ Monter automatiquement au démarrage (fstab)
 
-### a) Créer un fichier d'identifiants sécurisé
+### a) Créer un fichier caché d'identifiants sécurisé
 
 ```bash
-sudo nano /etc/cifs-creds-partage
+sudo nano /etc/.cifs-creds-partage
 ```
 Contenu :
 ```
@@ -52,7 +52,7 @@ password=MONMOTDEPASSE
 
 **Sécuriser le fichier :**
 ```bash
-sudo chmod 600 /etc/cifs-creds-partage
+sudo chmod 600 /etc/.cifs-creds-partage
 ```
 
 ### b) Éditer /etc/fstab
@@ -62,7 +62,16 @@ sudo nano /etc/fstab
 ```
 Ajouter la ligne :
 ```
-//serveur/Partage /mnt/partage cifs credentials=/etc/cifs-creds-partage,iocharset=utf8,uid=1000,gid=1000,file_mode=0770,dir_mode=0770 0 0
+//serveur/Partage /mnt/partage cifs credentials=/etc/.cifs-creds-partage,iocharset=utf8,uid=1000,gid=1000,file_mode=0770,dir_mode=0770 0 0
+
+**Explication des options :**
+- `credentials=/etc/.cifs-creds-partage` : chemin vers le fichier contenant le nom d'utilisateur et le mot de passe.
+- `iocharset=utf8` : utilise l'encodage UTF-8 pour les noms de fichiers (recommandé pour les caractères spéciaux).
+- `uid=1000` : définit l'identifiant utilisateur propriétaire des fichiers montés (à adapter à ton utilisateur, voir la commande `id`).
+- `gid=1000` : définit l'identifiant du groupe propriétaire des fichiers montés.
+- `file_mode=0770` : permissions par défaut pour les fichiers (lecture/écriture/exécution pour propriétaire et groupe).
+- `dir_mode=0770` : permissions par défaut pour les dossiers.
+- Les deux derniers `0 0` : options pour dump et fsck (sauvegarde et vérification du système de fichiers, généralement laissées à 0 pour les montages réseau).
 ```
 - Adapter `uid` et `gid` à ton utilisateur (voir `id`)
 - Adapter les droits selon le besoin
@@ -72,6 +81,18 @@ Ajouter la ligne :
 ```bash
 sudo mount -a
 ```
+
+**Alternative avec systemd :**
+```bash
+sudo systemctl restart remote-fs.target
+```
+Cette commande demande à systemd de remonter tous les systèmes de fichiers réseau définis dans fstab (dont CIFS/NFS).
+
+**Remarque sur `daemon-reload` :**
+```bash
+sudo systemctl daemon-reload
+```
+Cette commande recharge la configuration de systemd (unités/services). Elle est utile si tu ajoutes ou modifies un fichier d’unité systemd personnalisé (ex : .mount, .service), mais n’est généralement pas nécessaire pour un simple changement dans fstab. Utilise-la si tu crées ou modifies des unités systemd liées au montage réseau.
 
 ---
 

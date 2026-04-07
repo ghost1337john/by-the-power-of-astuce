@@ -9,7 +9,7 @@
 Si la commande `sudo` n'est pas reconnue :
 
 ```bash
-su -
+su root
 apt update
 apt install sudo
 ```
