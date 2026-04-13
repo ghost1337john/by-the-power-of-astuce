@@ -14,6 +14,7 @@ Modifie ou ajoute les lignes suivantes :
 
 ```bash
 GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1 quiet splash"
+GRUB_CMDLINE_LINUX="ipv6.disable=1"
 ```
 
 ### 3. Mettre à jour la configuration GRUB
@@ -40,7 +41,7 @@ Après redémarrage, IPv6 sera désactivé au niveau du noyau.
 Vérifie que IPv6 est bien désactivé :
 
 ```bash
-sudo cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 ```
 
 Si la valeur est `1`, c’est bon.
