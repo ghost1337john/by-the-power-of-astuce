@@ -31,7 +31,7 @@ winget install --id Git.Git -e --source winget
 
 ## 3. Vérifier la version installée
 
- **Linux** : 
+- **Linux** : 
   ```
   sudo git --version
   ```
