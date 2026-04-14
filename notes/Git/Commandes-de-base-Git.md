@@ -130,7 +130,7 @@ ou en squash merge pour ne pas conserver l'historique des commits de la branche 
   ```
   git merge --squash nom-branche
   ```
-# 15. Rebaser les commits d'une branche vers une branche cible (avant se placer dans la branche source)
+## 15. Rebaser les commits d'une branche vers une branche cible (avant se placer dans la branche source)
 
   ```
   git rebase branche-cible
@@ -140,24 +140,20 @@ ou en squash merge pour ne pas conserver l'historique des commits de la branche 
   ```
   git remote -v
   ```
-
-## 7. Envoyer les modifications sur GitHub
+## 17. Envoyer les modifications sur GitHub
 
 - **Pousser sur la branche principale** :
   ```
-  git push origin main
+  git push
   ```
-
-## 8. Récupérer les modifications du serveur
+## 18. Récupérer les modifications du serveur
 
 - **Mettre à jour votre dépôt local** :
   ```
   git pull
   ```
 
-
-
-
 ## Sources
 - Pour aller plus loin, consultez l’[aide-mémoire Git](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
 - le tutoriel complet sur [DataCamp](https://www.datacamp.com/fr/tutorial/github-and-git-tutorial-for-beginners).
+- Un autre tutoriel sur [IT-Connect](https://www.it-connect.fr/bien-debuter-avec-git-installation-et-prise-en-main/)
