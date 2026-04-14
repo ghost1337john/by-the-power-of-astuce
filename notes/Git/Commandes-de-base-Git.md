@@ -152,6 +152,16 @@ ou en squash merge pour ne pas conserver l'historique des commits de la branche 
   ```
   git pull
   ```
+## 19. Configurer le dépôt local pour qu'il utilise le dépôt distant
+
+- **Ajouter une branche "origin" à un dépôt local** :
+  ```
+  git remote add origin https://github.com/utilisateur-git-hub/git-test.git
+  ```
+  **Faire un "push" de nos derniers commits** :
+  ```
+  git push -u origin main
+  ```
 
 ## Sources
 - Pour aller plus loin, consultez l’[aide-mémoire Git](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
