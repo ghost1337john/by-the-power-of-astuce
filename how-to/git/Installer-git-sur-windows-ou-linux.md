@@ -36,7 +36,7 @@ winget install --id Git.Git -e --source winget
   sudo git --version
   ```
 
-## 3. Configurer le profil utilisateur de Git
+## 4. Configurer le profil utilisateur de Git
 
 **Etape 1 - paramétrage du compte ** : 
   ```
@@ -52,6 +52,22 @@ winget install --id Git.Git -e --source winget
 git config --global --unset-all user.name 
 git config --global --unset-all user.email
  ```
+## 5. Installation du module post-git pour avoir le prompt git dans powershell
+
+**Etape 1 - paramétrage du compte ** : 
+  ```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+  ```
+**Etape 2 - vérifier la configuration ** :
+ ```
+Install-Module posh-git -Scope CurrentUser
+ ```
+**Etape 3 - si erreur - pour supprimer ** 
+ ```
+Import-Module posh-git
+ ```
+C:\Users\User\Documents\GitHub\Project (main)>
+
 
  ## Sources : 
 - https://www.it-connect.fr/chapitres/git-installation-linux-ou-windows/
