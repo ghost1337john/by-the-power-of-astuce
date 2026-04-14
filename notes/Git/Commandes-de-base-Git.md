@@ -2,21 +2,23 @@
 
 ## 1. Initialiser un dépôt local
 
-- **Créer un nouveau dossier et initialiser Git** :
+- **Créer un nouveau dossier** :
   ```
   mkdir MonProjet
   cd MonProjet
-  git init
   ```
-
 ## 2. Cloner un dépôt existant
 
 - **Depuis GitHub** :
   ```
   git clone https://github.com/utilisateur/nom-du-repo.git
   ```
-
-## 3. Ajouter des fichiers
+## 3. Initialiser Git
+  
+  ```
+  git init
+  ```
+## 4. Ajouter des fichiers dans l'espace de staging
 
 - **Ajouter un fichier spécifique** :
   ```
@@ -26,22 +28,115 @@
   ```
   git add .
   ```
-
-## 4. Vérifier l’état du dépôt
+## 5. Vérifier l’état du dépôt
 
 - **Voir les modifications en attente** :
   ```
   git status
   ```
-
-## 5. Enregistrer les modifications (commit)
+ou
+  ```
+  git status -s
+  ```
+## 6. Enregistrer le snapshot des modifications (commit)
 
 - **Créer un commit avec message** :
   ```
   git commit -m "Votre message explicite"
   ```
+ou pour combiner add et commit
+  ```
+  git commit -am "Votre message explicite"
+  ```
+## 7. Afficher les changements entre le répertoire de travail et l'espace de staging
 
-## 6. Lier un dépôt distant
+  ```
+  git diff
+  ```
+## 8.  Retirer un fichier spécifique de l'espace de staging
+  ```
+  git reset nom_du_fichier
+  ```
+ou pour tout le contenu
+  ```
+  git reset
+  ```
+# 8.  Retirer un fichier spécifique de l'espace de staging et du répertoire de travail
+  ```
+  git rm <nom_du_fichier>
+  ```
+ou Retirer tout le contenu de l'espace de staging et du répertoire de travail
+  ```
+  git rm  *
+  ```
+## 9. Voir l’historique des commits
+
+- **Afficher la liste des commits** :
+  ```
+  git log
+  ```
+ou en une ligne 
+  ```
+  git log --oneline
+  ```  
+## 10. Suppression du commit
+
+**Suppression du dernier commit**
+ ```
+git revert -e HEAD
+ ```
+**Suppression de l'avant dernier commit**
+ ```
+git revert -e HEAD~1
+ ```
+**Suppression d'un commit à partir de son hash**
+ ```
+git revert -e hash
+ ```
+## 11. Restaurer une version antérieur d'un commit
+
+ ```
+git reset --hard hash
+ ```
+
+## 12. Voir la branche en cours
+
+ ```
+git branch
+ ```
+ou basculter sur une autre branche
+
+ ```
+git checkout nouvelle-banche
+ ```
+
+## 13. Gérer les branches
+
+- **Créer et basculer sur une nouvelle branche** :
+  ```
+  git checkout -b nouvelle-branche
+  ```
+- **Supprimer une branche** :
+  ```
+  git branch -d nom-branche
+  ```
+## 14. Fusionner une branche (avant se placer dans la branche de destination)
+
+- **Fusionner une branche dans la branche courante** :
+  ```
+  git merge nom-branche-source
+  ```
+ou en squash merge pour ne pas conserver l'historique des commits de la branche secondaire
+  ```
+  git merge --squash nom-branche
+  ```
+
+
+
+
+
+
+## 7. Lier un dépôt distant
 
 - **Ajouter un remote (si besoin)** :
   ```
@@ -66,30 +161,8 @@
   git pull
   ```
 
-## 9. Gérer les branches
 
-- **Créer et basculer sur une nouvelle branche** :
-  ```
-  git checkout -b nouvelle-branche
-  ```
-- **Supprimer une branche** :
-  ```
-  git branch -d nom-branche
-  ```
 
-## 10. Fusionner une branche
-
-- **Fusionner une branche dans la branche courante** :
-  ```
-  git merge nom-branche
-  ```
-
-## 11. Voir l’historique des commits
-
-- **Afficher la liste des commits** :
-  ```
-  git log
-  ```
 
 ## Sources
 - Pour aller plus loin, consultez l’[aide-mémoire Git](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
