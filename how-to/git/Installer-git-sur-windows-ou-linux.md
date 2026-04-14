@@ -53,5 +53,7 @@ git config --global --unset-all user.name
 git config --global --unset-all user.email
  ```
 
- Sources : https://www.it-connect.fr/chapitres/git-installation-linux-ou-windows/
-           https://www.it-connect.fr/chapitres/git-configurer-un-profil-utilisateur-vscode/
+ Sources : 
+ 
+ https://www.it-connect.fr/chapitres/git-installation-linux-ou-windows/
+ https://www.it-connect.fr/chapitres/git-configurer-un-profil-utilisateur-vscode/
