@@ -42,16 +42,13 @@ winget install --id Git.Git -e --source winget
   ```
   git config --global user.name "Prénom_Nom"
   git config --global user.email "monmail@domain.com"
-
   ```
 **Etape 2 - vérifier la configuration ** :
  ```
  git config --global --list
-
  ```
 **Etape 3 - si erreur - pour supprimer ** 
  ```
 git config --global --unset-all user.name 
 git config --global --unset-all user.email
-
  ```
