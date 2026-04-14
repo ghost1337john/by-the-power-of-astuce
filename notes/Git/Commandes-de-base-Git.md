@@ -130,19 +130,13 @@ ou en squash merge pour ne pas conserver l'historique des commits de la branche 
   ```
   git merge --squash nom-branche
   ```
+# 15. Rebaser les commits d'une branche vers une branche cible (avant se placer dans la branche source)
 
-
-
-
-
-
-## 7. Lier un dépôt distant
-
-- **Ajouter un remote (si besoin)** :
   ```
-  git remote add origin https://github.com/utilisateur/nom-du-repo.git
+  git rebase branche-cible
   ```
-- **Vérifier les remotes** :
+## 16. Afficher les branches du dépôt distant
+
   ```
   git remote -v
   ```
