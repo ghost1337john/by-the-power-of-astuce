@@ -45,7 +45,6 @@ touch mon_fichier.txt           # crée un fichier vide ou met à jour la date
 **Options mkdir :**
 - `-p` : crée les dossiers parents si besoin
 
-mv ancien.txt nouveau.txt    # déplacer ou renommer
 ## 5. Copier, déplacer, renommer
 ```
 cp source.txt destination.txt      # copier un fichier
@@ -151,6 +150,7 @@ kill -9 PID                 # forcer l'arrêt
 echo "texte"                # afficher du texte
 echo $HOME                  # afficher une variable
 history                     # historique des commandes
+!numerodecommande           # rappeler une commande avec le numéro dans l'historique
 clear                       # nettoyer le terminal
 zip archive.zip fichier.txt # compresser
 unzip archive.zip           # décompresser
