@@ -155,5 +155,5 @@ ou en squash merge pour ne pas conserver l'historique des commits de la branche 
 
 ## Sources
 - Pour aller plus loin, consultez l’[aide-mémoire Git](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
-- le tutoriel complet sur [DataCamp](https://www.datacamp.com/fr/tutorial/github-and-git-tutorial-for-beginners).
-- Un autre tutoriel sur [IT-Connect](https://www.it-connect.fr/bien-debuter-avec-git-installation-et-prise-en-main/)
+- le tutoriel complet sur [DataCamp](https://www.datacamp.com/fr/tutorial/github-and-git-tutorial-for-beginners)
+- Un autre tutoriel sur [IT-Connect](https://www.it-connect.fr/bien-debuter-avec-git-installation-et-prise-en-main/*)
