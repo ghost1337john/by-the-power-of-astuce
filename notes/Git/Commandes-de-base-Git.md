@@ -1,6 +1,6 @@
 # Commandes de base Git & GitHub
 
-## 1. Initialiser un dépôt
+## 1. Initialiser un dépôt local
 
 - **Créer un nouveau dossier et initialiser Git** :
   ```
