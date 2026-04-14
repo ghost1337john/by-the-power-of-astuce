@@ -152,7 +152,13 @@ ou en squash merge pour ne pas conserver l'historique des commits de la branche 
   ```
   git pull
   ```
-## 19. Configurer le dépôt local pour qu'il utilise le dépôt distant
+## 19.  Récupérer les changements d'un dépôt distant sans les intégrer à un dépôt local
+
+- **Mettre à jour votre dépôt local** :
+  ```
+  git fetch
+  ```
+## 20. Configurer le dépôt local pour qu'il utilise le dépôt distant
 
 - **Ajouter une branche "origin" à un dépôt local** :
   ```
