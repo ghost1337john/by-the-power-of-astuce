@@ -1,18 +1,6 @@
 # Commandes de base Git & GitHub
 
-## 1. Installer Git
-
-- **Windows** : Télécharger sur [git-scm.com](https://git-scm.com/download/win) ou via PowerShell :
-  ```
-  winget install --id Git.Git -e --source winget
-  ```
-- **Configurer votre identité** :
-  ```
-  git config --global user.name "VotreNom"
-  git config --global user.email "votre@email.com"
-  ```
-
-## 2. Initialiser un dépôt
+## 1. Initialiser un dépôt
 
 - **Créer un nouveau dossier et initialiser Git** :
   ```
